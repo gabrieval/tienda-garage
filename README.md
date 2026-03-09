@@ -4,7 +4,7 @@ Aplicación web de e-commerce desarrollada con React como proyecto final del cur
 
 ## Descripción
 
-Esta es una Single Page Application (SPA) de e-commerce que permite a los usuarios navegar por un catálogo de productos, filtrarlos por categoría, ver detalles de cada producto, agregar items al carrito de compras y finalizar una compra generando una orden en Firebase.
+Esta es una Single Page Application (SPA) de ecommerce que permite a los usuarios navegar por un catálogo de productos, filtrarlos por categoría, ver detalles de cada producto, agregar items al carrito de compras y finalizar una compra generando una orden en Firebase.
 
 ## Tecnologías Utilizadas
 
