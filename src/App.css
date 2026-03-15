@@ -82,7 +82,7 @@ nav {
 
 /* Item List Container */
 .item-list-container {
-  padding: 2rem;
+  padding: 2rem 2rem 4rem;
   max-width: 1200px;
   margin: 2rem auto 0;
   width: 100%;
@@ -107,7 +107,8 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 
 .item-card {
@@ -359,7 +360,7 @@ nav {
   }
 
   .item-list-container {
-    padding: 1rem;
+    padding: 1rem 1rem 4rem;
   }
 
   .item-list-container h1 {

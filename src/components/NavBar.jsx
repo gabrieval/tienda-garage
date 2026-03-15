@@ -5,6 +5,7 @@ import { getCategories } from "../firebase/services";
 
 function NavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -19,6 +20,16 @@ function NavBar() {
     setIsDropdownOpen(false);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+    setIsDropdownOpen(false);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+  };
+
   const formatCategoryName = (category) => {
     return category
       .split(" ")
@@ -30,23 +41,25 @@ function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="/logo.png" alt="logo" width="150" height="auto" />
+          <img src="/logo.png" alt="Venta de Garaje" width="150" height="auto" />
         </Link>
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          onClick={toggleMobileMenu}
           aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-expanded={isMobileMenuOpen}
+          aria-label="Abrir menú"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div
+          className={`collapse navbar-collapse${isMobileMenuOpen ? " show" : ""}`}
+          id="navbarNav"
+        >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/" onClick={closeMobileMenu}>
                 Inicio
               </Link>
             </li>
@@ -67,7 +80,7 @@ function NavBar() {
                 style={{ display: isDropdownOpen ? "block" : "none" }}
               >
                 <li>
-                  <Link className="dropdown-item" to="/" onClick={closeDropdown}>
+                  <Link className="dropdown-item" to="/" onClick={closeMobileMenu}>
                     Todos los Productos
                   </Link>
                 </li>
@@ -76,7 +89,7 @@ function NavBar() {
                     <Link
                       className="dropdown-item"
                       to={`/category/${category}`}
-                      onClick={closeDropdown}
+                      onClick={closeMobileMenu}
                     >
                       {formatCategoryName(category)}
                     </Link>
@@ -84,7 +97,7 @@ function NavBar() {
                 ))}
               </ul>
             </li>
-            <li className="nav-item ms-3">
+            <li className="nav-item ms-3" onClick={closeMobileMenu}>
               <CartWidget />
             </li>
           </ul>
