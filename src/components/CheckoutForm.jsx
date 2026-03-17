@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { createOrder } from "../firebase/services";
+import { formatMoney } from "../utils/money";
 
 const CheckoutForm = () => {
   const { cart, getTotalPrice, clearCart } = useCart();
@@ -359,11 +360,11 @@ const CheckoutForm = () => {
                     <div>
                       <div className="fw-bold">{item.name}</div>
                       <small className="text-muted">
-                        {item.quantity} x ${item.price.toFixed(2)}
+                        {item.quantity} x {formatMoney(item.price)}
                       </small>
                     </div>
                     <div className="fw-bold">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      {formatMoney(item.price * item.quantity)}
                     </div>
                   </div>
                 ))}
@@ -373,7 +374,7 @@ const CheckoutForm = () => {
 
               <div className="d-flex justify-content-between mb-2">
                 <span>Subtotal</span>
-                <span>${total.toFixed(2)}</span>
+                <span>{formatMoney(total)}</span>
               </div>
 
               <div className="d-flex justify-content-between mb-2">
@@ -385,7 +386,7 @@ const CheckoutForm = () => {
 
               <div className="d-flex justify-content-between">
                 <strong>Total</strong>
-                <strong className="h4">${total.toFixed(2)}</strong>
+                <strong className="h4">{formatMoney(total)}</strong>
               </div>
             </div>
           </div>

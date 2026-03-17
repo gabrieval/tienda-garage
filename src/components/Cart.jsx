@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import CartItem from "./CartItem";
+import { formatMoney } from "../utils/money";
 
 const Cart = () => {
   const { cart, getTotalPrice, clearCart } = useCart();
@@ -18,14 +19,12 @@ const Cart = () => {
 
     const itemsText = cart
       .map((item) => {
-        const subtotal = (item.price * item.quantity).toFixed(2);
-        return `- ${item.name} x ${item.quantity} = $${subtotal}`;
+        const subtotal = item.price * item.quantity;
+        return `- ${item.name} x ${item.quantity} = ${formatMoney(subtotal)}`;
       })
       .join("\n");
 
-    const message = `Hola, quiero hacer el siguiente pedido:\n\n${itemsText}\n\nTotal: $${total.toFixed(
-      2
-    )}`;
+    const message = `Hola, quiero hacer el siguiente pedido:\n\n${itemsText}\n\nTotal: ${formatMoney(total)}`;
 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
@@ -77,14 +76,14 @@ const Cart = () => {
 
               <div className="d-flex justify-content-between mb-2">
                 <span>Productos ({cart.length})</span>
-                <span>${total.toFixed(2)}</span>
+                <span>{formatMoney(total)}</span>
               </div>
 
               <hr />
 
               <div className="d-flex justify-content-between mb-3">
                 <strong>Total</strong>
-                <strong className="h4">${total.toFixed(2)}</strong>
+                <strong className="h4">{formatMoney(total)}</strong>
               </div>
 
               <button

@@ -1,4 +1,6 @@
 import { useCart } from "../context/CartContext";
+import { getPrimaryProductImageSrc } from "../utils/productImages";
+import { formatMoney } from "../utils/money";
 
 const CartItem = ({ item }) => {
   const { updateQuantity, removeFromCart } = useCart();
@@ -26,7 +28,7 @@ const CartItem = ({ item }) => {
       <div className="row g-0">
         <div className="col-md-3">
           <img
-            src={item.image}
+            src={getPrimaryProductImageSrc(item.image)}
             alt={item.name}
             className="img-fluid rounded-start h-100 object-fit-cover"
             style={{ maxHeight: '200px' }}
@@ -37,7 +39,7 @@ const CartItem = ({ item }) => {
             <div className="d-flex justify-content-between align-items-start">
               <div>
                 <h5 className="card-title">{item.name}</h5>
-                <p className="card-text text-muted">${item.price.toFixed(2)} c/u</p>
+                <p className="card-text text-muted">{formatMoney(item.price)} c/u</p>
               </div>
               <button
                 className="btn btn-sm btn-outline-danger"
@@ -75,7 +77,7 @@ const CartItem = ({ item }) => {
 
               <div className="text-end">
                 <div className="text-muted small">Subtotal</div>
-                <div className="h5 mb-0">${subtotal.toFixed(2)}</div>
+                <div className="h5 mb-0">{formatMoney(subtotal)}</div>
               </div>
             </div>
           </div>

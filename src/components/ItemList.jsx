@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { getPrimaryProductImageSrc } from "../utils/productImages";
+import { formatMoney } from "../utils/money";
 
 const ItemList = ({ products = [] }) => {
   return (
@@ -8,9 +10,9 @@ const ItemList = ({ products = [] }) => {
       ) : (
         products.map((product) => (
           <div key={product.id} className="item-card">
-            <img src={product.image} alt={product.name} />
+            <img src={getPrimaryProductImageSrc(product.image)} alt={product.name} />
             <h3>{product.name}</h3>
-            <p className="price">${product.price}</p>
+            <p className="price">{formatMoney(product.price)}</p>
             <p className="description">{product.description}</p>
             <Link to={`/item/${product.id}`} className="detail-link">
               Ver Detalle
