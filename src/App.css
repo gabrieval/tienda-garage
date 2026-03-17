@@ -16,6 +16,13 @@ body {
   flex-direction: column;
 }
 
+/* Paleta global basada en header/logo */
+:root {
+  --vg-bg-dark: #131921;      /* fondo header */
+  --vg-accent: #2468a4;       /* azul para precios/botones secundarios */
+  --vg-accent-dark: #1d4f7c;  /* azul más oscuro */
+}
+
 /* NavBar Styles */
 nav.navbar {
   --bs-navbar-padding-y: 2.5rem;
@@ -24,8 +31,47 @@ nav.navbar {
 }
 
 nav {
-  background-color: #131921;
+  background-color: var(--vg-bg-dark);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones Bootstrap adaptados a la marca */
+.btn-primary {
+  background-color: var(--vg-bg-dark) !important;
+  border-color: var(--vg-bg-dark) !important;
+  color: #f9fafb !important;
+  font-weight: 600;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #020617 !important;
+  border-color: #020617 !important;
+  color: #fff !important;
+}
+
+.btn-outline-secondary {
+  color: var(--vg-bg-dark) !important;
+  border-color: var(--vg-bg-dark) !important;
+  font-weight: 500;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background-color: var(--vg-bg-dark) !important;
+  color: #fff !important;
+}
+
+.btn-outline-danger {
+  border-width: 2px;
+}
+
+/* Alertas */
+.alert-success {
+  background-color: rgba(22, 163, 74, 0.1) !important;
+  border-color: #16a34a !important;
+  color: #14532d !important;
+  font-weight: 500;
 }
 
 .navbar-brand {
@@ -64,8 +110,8 @@ nav {
 }
 
 .dropdown-item:hover {
-  background-color: #ff9900 !important;
-  color: #000 !important;
+  background-color: var(--vg-accent) !important;
+  color: #111827 !important;
 }
 
 /* CartWidget */
@@ -75,15 +121,47 @@ nav {
 }
 
 .d-flex.align-items-center:hover svg {
-  color: #ff9900;
+  color: var(--vg-accent);
 }
 
 .badge {
   font-weight: 700;
   font-size: 0.8rem;
   padding: 0.35rem 0.6rem;
-  background-color: #ff9900 !important;
-  color: #000 !important;
+  background-color: var(--vg-accent) !important;
+  color: #111827 !important;
+}
+
+/* Carrito */
+.container h1,
+.container h2,
+.container h5 {
+  color: #131921;
+  font-weight: 700;
+}
+
+.card {
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.75rem;
+}
+
+.text-muted {
+  color: #6b7280 !important;
+}
+
+.btn-link {
+  color: var(--vg-accent-dark) !important;
+}
+
+.btn-link:hover {
+  color: var(--vg-accent) !important;
+  text-decoration: none;
 }
 
 /* Item List Container */
@@ -147,7 +225,7 @@ nav {
 }
 
 .item-card .price {
-  color: #ff9900;
+  color: var(--vg-accent);
   font-size: 1.5rem;
   font-weight: 700;
   padding: 0 1rem;
@@ -166,8 +244,8 @@ nav {
   display: inline-block;
   margin: 0 1rem 1rem;
   padding: 0.75rem 1.5rem;
-  background-color: #ff9900;
-  color: #000;
+  background-color: var(--vg-bg-dark);
+  color: #f9fafb;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
@@ -177,7 +255,7 @@ nav {
 }
 
 .detail-link:hover {
-  background-color: #ff7700;
+  background-color: #020617;
   color: #fff;
 }
 
@@ -245,12 +323,12 @@ nav {
 
 .detail-thumb:hover {
   transform: translateY(-1px);
-  border-color: #ff9900;
+  border-color: var(--vg-accent);
 }
 
 .detail-thumb.is-active {
-  border-color: #ff9900;
-  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.25);
+  border-color: var(--vg-accent);
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
 }
 
 .detail-info h1 {
@@ -261,7 +339,7 @@ nav {
 }
 
 .detail-info .price {
-  color: #ff9900;
+  color: var(--vg-accent);
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -312,9 +390,9 @@ nav {
 }
 
 .counter button:hover:not(:disabled) {
-  background-color: #ff9900;
+  background-color: var(--vg-bg-dark);
   color: #fff;
-  border-color: #ff9900;
+  border-color: var(--vg-bg-dark);
 }
 
 .counter button:disabled {
@@ -331,8 +409,8 @@ nav {
 
 .add-to-cart-btn {
   padding: 1rem 2rem;
-  background-color: #ff9900;
-  color: #000;
+  background-color: var(--vg-bg-dark);
+  color: #f9fafb;
   border: none;
   border-radius: 4px;
   font-weight: 700;
@@ -342,7 +420,7 @@ nav {
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
-  background-color: #ff7700;
+  background-color: #020617;
   color: #fff;
 }
 
@@ -377,8 +455,8 @@ nav {
 .home-link {
   display: inline-block;
   padding: 0.75rem 2rem;
-  background-color: #ff9900;
-  color: #000;
+  background-color: var(--vg-bg-dark);
+  color: #f9fafb;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 600;
@@ -386,7 +464,7 @@ nav {
 }
 
 .home-link:hover {
-  background-color: #ff7700;
+  background-color: #020617;
   color: #fff;
 }
 
