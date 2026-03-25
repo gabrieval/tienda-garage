@@ -41,7 +41,7 @@ function NavBar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src="/logo.png" alt="Venta de Garaje" width="150" height="auto" />
+          <img src="/logo.png" alt="Venta de garaje" width="150" height="auto" />
         </Link>
         <button
           className="navbar-toggler"
