@@ -180,6 +180,31 @@ nav {
   font-weight: 700;
 }
 
+.product-search {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+.product-search-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.product-search-input {
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  padding: 0.65rem 1rem;
+  font-weight: 500;
+}
+
+.product-search-input:focus {
+  border-color: var(--vg-accent);
+  box-shadow: 0 0 0 3px rgba(36, 104, 164, 0.2);
+}
+
 .item-list-container > p {
   text-align: center;
   color: #666;

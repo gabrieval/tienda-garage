@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { getPrimaryProductImageSrc } from "../utils/productImages";
 import { formatMoney } from "../utils/money";
 
-const ItemList = ({ products = [] }) => {
+const ItemList = ({ products = [], emptyMessage }) => {
+  const defaultEmpty = "No hay productos disponibles";
   return (
     <div className="item-list">
       {products.length === 0 ? (
-        <p>No hay productos disponibles</p>
+        <p>{emptyMessage ?? defaultEmpty}</p>
       ) : (
         products.map((product) => (
           <div key={product.id} className="item-card">
